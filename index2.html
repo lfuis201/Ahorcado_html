@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.4.6/tailwind.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-gray-900">
+    <div class="container mx-auto mt-4">
+      <div
+        class="mx-auto mt-4 shadow-lg mb-2 bg-purple-900 shadow-lg border rounded-lg lg:w-2/6 md:w-3/6 sm:w-4/6"
+      >
+        <div class="">
+          <div class="p-5 text-white text-center text-3xl bg-purple-900">
+            <span class="text-orange-500">Calcu</span>lator
+          </div>
+          <div
+            id="display"
+            class="pt-16 p-5 pb-0 text-white text-right text-3xl bg-purple-800"
+          >
+            0
+          </div>
+          <div
+            class="p-5 text-white text-right text-3xl bg-purple-800"
+            id="result"
+          >
+            = <span class="text-orange-500">0</span>
+          </div>
+
+
+          <div class="flex justify-center items-center mt-4 mb-4">
+            <div id="numbers-container" class="grid grid-cols-3 gap-4 justify-items-center items-center">
+              <div id="number-7" class="number rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" onclick="appendToDisplay('7')">7</div>
+              <div id="number-8" class="number rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" onclick="appendToDisplay('8')">8</div>
+              <div id="number-9" class="number rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" onclick="appendToDisplay('9')">9</div>
+              <div id="number-4" class="number rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" onclick="appendToDisplay('4')">4</div>
+              <div id="number-5" class="number rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" onclick="appendToDisplay('5')">5</div>
+              <div id="number-6" class="number rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" onclick="appendToDisplay('6')">6</div>
+              <div id="number-1" class="number rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" onclick="appendToDisplay('1')">1</div>
+              <div id="number-2" class="number rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" onclick="appendToDisplay('2')">2</div>
+              <div id="number-3" class="number rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" onclick="appendToDisplay('3')">3</div>
+              <div id="number-0" class="number number-0 rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" onclick="appendToDisplay('0')">0</div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <script>
+        // Función para obtener un número aleatorio entre min (incluido) y max (excluido)
+        function getRandomNumber(min, max) {
+          return Math.floor(Math.random() * (max - min) + min);
+        }
+      
+        // Función para cambiar el valor de los números aleatoriamente
+        function changeNumberValues() {
+          // Obtener los números del contenedor
+          var numbersContainer = document.getElementById('numbers-container');
+          var numbers = numbersContainer.children;
+      
+          // Iterar sobre cada número y cambiar su valor
+          for (var i = 0; i < numbers.length; i++) {
+            var number = numbers[i];
+            // Obtener un número aleatorio entre 0 y 9
+            var randomNumber = getRandomNumber(0, 10);
+            // Asignar el número aleatorio como el nuevo valor del número
+            number.innerText = randomNumber;
+          }
+        }
+      
+        // Llamar a la función para cambiar los valores de los números cuando la página se cargue
+        window.onload = changeNumberValues;
+      </script>
+
+  </body>
+</html>
